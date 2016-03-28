@@ -14,7 +14,7 @@ RUN apt-get update && \
     echo 'slapd/root_password_again password password' | debconf-set-selections && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y slapd ldap-utils &&\
 	rm -rf /var/lib/apt/lists/*
-ENV PASS_FILE
+
 ADD files /ldap
 
 RUN service slapd start ;\
