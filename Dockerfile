@@ -4,7 +4,7 @@
 # it is based on https://github.com/rackerlabs/dockerstack/blob/master/keystone/openldap/Dockerfile 
 # also the files/more.ldif from http://www.zytrax.com/books/ldap/ch14/#ldapsearch
 
-FROM  ubuntu:trusty
+FROM  index.alauda.cn/library/ubuntu:trusty
 
 MAINTAINER Larry Cai "larry.caiyu@gmail.com"
 
