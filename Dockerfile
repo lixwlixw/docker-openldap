@@ -14,7 +14,7 @@ RUN apt-get update && \
     echo 'slapd/root_password_again password password' | debconf-set-selections && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y slapd ldap-utils &&\
 	rm -rf /var/lib/apt/lists/*
-
+ENV PASS_FILE
 ADD files /ldap
 
 RUN service slapd start ;\
@@ -24,7 +24,8 @@ RUN service slapd start ;\
     ldapadd -Y EXTERNAL -H ldapi:/// -f sssvlv_config.ldif &&\
     ldapadd -x -D cn=admin,dc=openstack,dc=org -w password -c -f front.ldif &&\
     ldapadd -x -D cn=admin,dc=openstack,dc=org -w password -c -f more.ldif &&\
-    ldapadd -x -D cn=admin,dc=openstack,dc=org -w password -c -f /ldap-user-data/more.ldif
+    wget -O pass_file PASS_FILE &&\
+    ldapadd -x -D cn=admin,dc=openstack,dc=org -w password -c -f pass_file
 
 EXPOSE 389
 
