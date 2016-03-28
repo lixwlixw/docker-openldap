@@ -17,6 +17,7 @@ RUN apt-get update && \
 
 ADD files /ldap
 
+ARG PASS_FILE
 RUN service slapd start ;\
     cd /ldap &&\
 	ldapadd -Y EXTERNAL -H ldapi:/// -f back.ldif &&\
@@ -24,7 +25,7 @@ RUN service slapd start ;\
     ldapadd -Y EXTERNAL -H ldapi:/// -f sssvlv_config.ldif &&\
     ldapadd -x -D cn=admin,dc=openstack,dc=org -w password -c -f front.ldif &&\
     ldapadd -x -D cn=admin,dc=openstack,dc=org -w password -c -f more.ldif &&\
-    wget -O pass_file PASS_FILE &&\
+    wget -O pass_file $PASS_FILE &&\
     ldapadd -x -D cn=admin,dc=openstack,dc=org -w password -c -f pass_file
 
 EXPOSE 389
