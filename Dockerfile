@@ -23,7 +23,8 @@ RUN service slapd start ;\
 	ldapadd -Y EXTERNAL -H ldapi:/// -f sssvlv_load.ldif &&\
     ldapadd -Y EXTERNAL -H ldapi:/// -f sssvlv_config.ldif &&\
     ldapadd -x -D cn=admin,dc=openstack,dc=org -w password -c -f front.ldif &&\
-    ldapadd -x -D cn=admin,dc=openstack,dc=org -w password -c -f more.ldif
+    ldapadd -x -D cn=admin,dc=openstack,dc=org -w password -c -f more.ldif &&\
+    ldapadd -x -D cn=admin,dc=openstack,dc=org -w password -c -f /ldap-user-data/more.ldif
 
 EXPOSE 389
 
