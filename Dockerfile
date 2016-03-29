@@ -27,4 +27,4 @@ RUN service slapd start ;\
 
 EXPOSE 389
 
-CMD slapd -h 'ldap:/// ldapi:///' -g openldap -u openldap -F /etc/ldap/slapd.d -d stats
+CMD slapd -h 'ldap:/// ldapi:///'  -F /etc/ldap/slapd.d -d stats
