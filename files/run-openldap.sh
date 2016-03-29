@@ -45,4 +45,4 @@ kill -2 $pid || echo $?
     sleep 2
 #done
 
-slapd -h 'ldap:/// ldapi:///' -g openldap -u openldap -F /etc/ldap/slapd.d -d stats
+slapd -h 'ldap:/// ldapi:///' -F /etc/ldap/slapd.d -d stats
