@@ -21,4 +21,4 @@ RUN chmod +x /ldap/run-openldap.sh
 
 EXPOSE 389
 
-CMD ["/bin/bash" , "/ldap/run-openldap.sh"]
+CMD /bin/bash /ldap/run-openldap.sh
