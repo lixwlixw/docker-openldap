@@ -17,14 +17,7 @@ RUN apt-get update && \
 
 ADD files /ldap
 
-RUN service slapd start ;\
-    cd /ldap &&\
-	ldapadd -Y EXTERNAL -H ldapi:/// -f back.ldif &&\
-	ldapadd -Y EXTERNAL -H ldapi:/// -f sssvlv_load.ldif &&\
-    ldapadd -Y EXTERNAL -H ldapi:/// -f sssvlv_config.ldif &&\
-    ldapadd -x -D cn=admin,dc=openstack,dc=org -w password -c -f front.ldif &&\
-    ldapadd -x -D cn=admin,dc=openstack,dc=org -w password -c -f more.ldif &&\
-    chmod +x /ldap/run-openldap.sh
+
 
 EXPOSE 389
 
