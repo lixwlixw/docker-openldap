@@ -45,10 +45,4 @@ kill -2 $pid || echo $?
     sleep 2
 #done
 
-if [ $i -eq 0 ]
-then
-    echo "slapd did not stop correctly"
-    exit 1
-fi
-
 slapd -h 'ldap:/// ldapi:///' -g openldap -u openldap -F /etc/ldap/slapd.d -d stats
