@@ -1,3 +1,4 @@
+#!/bin/bash
 #slapd -h "ldap:/// ldaps:/// ldapi:///" -d stats &
 #for ((i=30; i>0; i--))
 #do
