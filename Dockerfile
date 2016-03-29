@@ -17,7 +17,7 @@ RUN apt-get update && \
 
 ADD files /ldap
 
-
+RUN chmod +x /ldap/run-openldap.sh
 
 EXPOSE 389
 
