@@ -35,15 +35,15 @@ service slapd start ;\
 pid=$(ps -A | grep slapd | awk '{print $1}')
 kill -2 $pid || echo $?
 
-for ((i=30; i>0; i--))
-do
-    exists=$(ps -A | grep $pid)
-    if [ -z "${exists}" ]
-    then
-        break
-    fi
-    sleep 1
-done
+#for ((i=30; i>0; i--))
+#do
+#    exists=$(ps -A | grep $pid)
+#    if [ -z "${exists}" ]
+#    then
+#        break
+#    fi
+    sleep 2
+#done
 
 if [ $i -eq 0 ]
 then
