@@ -1,5 +1,5 @@
 #!/bin/bash
-#slapd -h "ldap:/// ldaps:/// ldapi:///" -d stats &
+slapd -h "ldap:/// ldaps:/// ldapi:///" -d stats &
 #for ((i=30; i>0; i--))
 #do
 #    ping_result=`ldapsearch 2>&1 | grep "Can.t contact LDAP server"`
@@ -15,7 +15,7 @@
 #    exit 1
 #fi  
 
-service slapd start ;\
+#service slapd start ;\
     cd /ldap &&\
 	ldapadd -Y EXTERNAL -H ldapi:/// -f back.ldif &&\
 	ldapadd -Y EXTERNAL -H ldapi:/// -f sssvlv_load.ldif &&\
